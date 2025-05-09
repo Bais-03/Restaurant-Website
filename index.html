@@ -245,6 +245,8 @@
 
 <!-- < Feedback Section --> 
 <section id="feedback" class="feedback">
+    <form class="feedback-form" id="feedbackForm">
+
     <div class="container">
         <h2 class="section-title animate-fade">Share Your Experience</h2>
         <form class="feedback-form">
@@ -284,104 +286,26 @@
         </form>
     </div>
 </section> 
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.add('active');
-        });
-        
-        mobileMenuClose.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-            });
-        });
-        
-        // Reservation form handling
-        const reservationForm = document.querySelector('.reservation-form');
-        if (reservationForm) {
-            reservationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const date = document.getElementById('date').value;
-                const time = document.getElementById('time').value;
-                const guests = document.getElementById('guests').value;
-                
-                // Simple validation
-                if (!name || !email || !phone || !date || !time || !guests) {
-                    alert('Please fill in all fields');
-                    return;
-                }
-                
-                // Here you would typically send this data to a server
-                // For demonstration, we'll just show an alert
-                alert(`Thank you, ${name}! Your reservation for ${guests} guests on ${date} at ${time} has been received. We'll contact you shortly to confirm.`);
-                
-                // Reset form
-                reservationForm.reset();
-            });
-        }
-        
-        // Feedback form handling
-        const feedbackForm = document.querySelector('.feedback-form');
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('feedback-name').value;
-                const email = document.getElementById('feedback-email').value;
-                const visitDate = document.getElementById('feedback-visit-date').value;
-                const rating = document.getElementById('feedback-rating').value;
-                const message = document.getElementById('feedback-message').value;
-                
-                // Simple validation
-                if (!name || !email || !visitDate || !rating || !message) {
-                    alert('Please fill in all fields');
-                    return;
-                }
-                
-                // Here you would typically send this data to a server
-                // For demonstration, we'll just show an alert
-                alert(`Thank you for your feedback, ${name}! We appreciate your ${rating}-star rating and will use your comments to improve our service.`);
-                
-                // Reset form
-                feedbackForm.reset();
-            });
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".reservation-form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevents actual form submission
+            alert("Thank you! Your reservation has been received.");
+            form.reset(); // Optional: reset the form after submission
         });
     });
 </script>
 
+<script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+        alert("Thank you for your feedback! We truly appreciate it.");
+        // Optionally, reset the form
+        this.reset();
+    });
+</script>
 
+
+</body>
