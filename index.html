@@ -13,7 +13,7 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <img src="gulzar.jpg" alt="Logo" class="logo" height="100" width="100">
+        <img src="gulzar.jpg" alt="logo" class="logo" height="100" width="100">
         <div class="nav-container">
             <a href="#" class="logo">GULZAR</a>
 
@@ -286,26 +286,7 @@
         </form>
     </div>
 </section> 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector(".reservation-form");
-        form.addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevents actual form submission
-            alert("Thank you! Your reservation has been received.");
-            form.reset(); // Optional: reset the form after submission
-        });
-    });
-</script>
-
-<script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from submitting
-        alert("Thank you for your feedback! We truly appreciate it.");
-        // Optionally, reset the form
-        this.reset();
-    });
-</script>
-
+<script src="script.js"></script>
 
 </body>
+</html>
